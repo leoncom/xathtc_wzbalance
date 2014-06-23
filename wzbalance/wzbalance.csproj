@@ -1,0 +1,223 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C8A1931-52D7-434D-92CA-A9B0E7A1C832}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>wzbalance</RootNamespace>
+    <AssemblyName>wzbalance</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.Excel, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\西安太航特材物资平衡表\Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\西安太航特材物资平衡表\Interop.Microsoft.Office.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=6.1.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\西安太航特材物资平衡表\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Settings.cs" />
+    <Compile Include="src\DrawComponents\ComboBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\DrawComponents\DataGridViewPrinter.cs" />
+    <Compile Include="src\DrawComponents\HeaderDes.cs" />
+    <Compile Include="src\DrawComponents\PrintTemplate.cs" />
+    <Compile Include="src\DrawComponents\PrintTemplateClass.cs" />
+    <Compile Include="src\Forms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\AddContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\AddContract.Designer.cs">
+      <DependentUpon>AddContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\ContactsManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ContactsManage.Designer.cs">
+      <DependentUpon>ContactsManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\DeleteTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\DeleteTemplate.Designer.cs">
+      <DependentUpon>DeleteTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\EditContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\EditContent.Designer.cs">
+      <DependentUpon>EditContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\AddContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\AddContact.Designer.cs">
+      <DependentUpon>AddContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\FindAndModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\FindAndModify.Designer.cs">
+      <DependentUpon>FindAndModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\PrintSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\PrintSetting.Designer.cs">
+      <DependentUpon>PrintSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\SheetHeaderSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\SheetHeaderSetting.Designer.cs">
+      <DependentUpon>SheetHeaderSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\LoadProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\LoadProgress.Designer.cs">
+      <DependentUpon>LoadProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\MainSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\MainSheet.Designer.cs">
+      <DependentUpon>MainSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\PrintTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\PrintTemplate.Designer.cs">
+      <DependentUpon>PrintTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\UserManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\UserManage.Designer.cs">
+      <DependentUpon>UserManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Utils\Action.cs" />
+    <Compile Include="src\DrawComponents\ComboItem.cs" />
+    <Compile Include="src\Utils\CommonTools.cs" />
+    <Compile Include="src\Utils\DataOperator.cs" />
+    <Compile Include="src\Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Utils\LogWriter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="src\Forms\About.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\Login.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\AddContract.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AddContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="src\Utils\User.cs" />
+    <Compile Include="src\Utils\VersionCheck.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\printPreviewDialog1.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
