@@ -177,6 +177,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>AddContract.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\MainSheet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainSheet.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>

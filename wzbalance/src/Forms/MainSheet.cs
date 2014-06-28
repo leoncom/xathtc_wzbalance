@@ -660,7 +660,7 @@ namespace wzbalance.src.Forms
                         this.removeItem(id);
                     }
                     this.SaveScrollPos();
-                    this.updatelist(this.defaultsql);
+                    this.updatelist("");
                     this.RestoreScrollPos();
                     MessageBox.Show("删除成功", "信息", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
@@ -1542,7 +1542,7 @@ namespace wzbalance.src.Forms
             Settings.Default.Save();
             if (DialogResult.OK == MessageBox.Show("页面大小已更改，立即刷新数据?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
             {
-                this.updatelist(this.defaultsql);
+                this.updatelist("");
             }
         }
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -1739,26 +1739,24 @@ namespace wzbalance.src.Forms
                         ToolTip toolTip = new ToolTip();
                         toolTip.SetToolTip(this.dataGridView1, caption);
                     }
-                    else
+                    else if (this.dataGridView1.Columns[columnIndex].Name == "buyman")
                     {
-                        if (this.dataGridView1.Columns[columnIndex].Name == "buyman")
+                        string str2 = this.dataGridView1.Rows[rowIndex].Cells[columnIndex].Value.ToString();
+                        string sql = "select person1, phone1, person2, phone2, person3, phone3, address, zip from contacts where name='" + str2 + "'";
+                        System.Data.DataTable data = this.dbop.getData(sql);
+                        DataTableReader dataTableReader = data.CreateDataReader();
+                        string caption;
+                        if (dataTableReader.Read())
                         {
-                            string str2 = this.dataGridView1.Rows[rowIndex].Cells[columnIndex].Value.ToString();
-                            string sql = "select person1, phone1, person2, phone2, person3, phone3, address, zip from contacts where name='" + str2 + "'";
-                            System.Data.DataTable data = this.dbop.getData(sql);
-                            DataTableReader dataTableReader = data.CreateDataReader();
-                            string caption;
-                            if (dataTableReader.Read())
-                            {
-                                string @string = dataTableReader.GetString(0);
-                                string string2 = dataTableReader.GetString(1);
-                                string string3 = dataTableReader.GetString(2);
-                                string string4 = dataTableReader.GetString(3);
-                                string string5 = dataTableReader.GetString(4);
-                                string string6 = dataTableReader.GetString(5);
-                                string string7 = dataTableReader.GetString(6);
-                                string string8 = dataTableReader.GetString(7);
-                                caption = string.Concat(new string[]
+                            string @string = dataTableReader.GetString(0);
+                            string string2 = dataTableReader.GetString(1);
+                            string string3 = dataTableReader.GetString(2);
+                            string string4 = dataTableReader.GetString(3);
+                            string string5 = dataTableReader.GetString(4);
+                            string string6 = dataTableReader.GetString(5);
+                            string string7 = dataTableReader.GetString(6);
+                            string string8 = dataTableReader.GetString(7);
+                            caption = string.Concat(new string[]
 								{
 									"联系人: ",
 									@string,
@@ -1777,15 +1775,33 @@ namespace wzbalance.src.Forms
 									"\n邮编: ",
 									string8
 								});
-                            }
-                            else
-                            {
-                                caption = "暂无此联系单位信息,请在通讯录中添加";
-                            }
-                            ToolTip toolTip = new ToolTip();
-                            toolTip.SetToolTip(this.dataGridView1, caption);
                         }
+                        else
+                        {
+                            caption = "暂无此联系单位信息,请在通讯录中添加";
+                        }
+                        ToolTip toolTip = new ToolTip();
+                        toolTip.SetToolTip(this.dataGridView1, caption);
                     }
+                    else if (this.dataGridView1.Columns[columnIndex].Name == "sellcontract")
+                    {   // 合同说明
+                        string full_sellcontract = this.dataGridView1.Rows[rowIndex].Cells[columnIndex].Value.ToString();
+                        ToolTip toolTip = new ToolTip();
+                        toolTip.SetToolTip(this.dataGridView1, full_sellcontract);
+                    }
+                    else if (this.dataGridView1.Columns[columnIndex].Name == "bz")
+                    {   // 备注
+                        string full_bz = this.dataGridView1.Rows[rowIndex].Cells[columnIndex].Value.ToString();
+                        ToolTip toolTip = new ToolTip();
+                        toolTip.SetToolTip(this.dataGridView1, full_bz);
+                    }
+                    else if (this.dataGridView1.Columns[columnIndex].Name == "zlyy")
+                    {   // 质量异议
+                        string full_zlyy = this.dataGridView1.Rows[rowIndex].Cells[columnIndex].Value.ToString();
+                        ToolTip toolTip = new ToolTip();
+                        toolTip.SetToolTip(this.dataGridView1, full_zlyy);
+                    }
+                    
                 }
             }
             else
@@ -2695,6 +2711,14 @@ namespace wzbalance.src.Forms
                 this.dbop.updatesql(sql);
             }
             MessageBox.Show("设置系统默认样式保存成功", "成功", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void htdqzt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+                this.htdqzt.SelectedIndex = -1;
+            }
         }
     }
 }

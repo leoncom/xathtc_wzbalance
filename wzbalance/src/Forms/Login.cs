@@ -145,86 +145,24 @@ namespace wzbalance.src.Forms
             }
             return result;
         }
-        public int getTbdescColumnVarcharSize(string tablename, string columnname)
-        {
-            int num = 0;
-            string sql = string.Concat(new string[]
-			{
-				"SELECT DATA_TYPE,CHARACTER_MAXIMUM_LENGTH from INFORMATION_SCHEMA.COLUMNS where table_name='",
-				tablename,
-				"' and column_name ='",
-				columnname,
-				"'"
-			});
-            int result;
-            try
-            {
-                DataTable data = this.dbop.getData(sql);
-                DataTableReader dataTableReader = data.CreateDataReader();
-                if (dataTableReader.Read())
-                {
-                    string @string = dataTableReader.GetString(dataTableReader.GetOrdinal("DATA_TYPE"));
-                    string string2 = dataTableReader.GetString(dataTableReader.GetOrdinal("CHARACTER_MAXIMUM_LENGTH"));
-                    if (@string != "varchar")
-                    {
-                        LogWriter.LogEntry("warning", string.Concat(new string[]
-						{
-							"table ",
-							tablename,
-							" column ",
-							columnname,
-							" type not varchar"
-						}));
-                        num = -1;
-                    }
-                    else
-                    {
-                        num = int.Parse(string2);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                LogWriter.LogEntry("error", ex.Message);
-                result = -3;
-                return result;
-            }
-            result = num;
-            return result;
-        }
+
         private void checkTableNeedUpdate()
         {
-            if (!this.checktableExist("template"))
+            if (!this.checkcolumnExist("balance", "tsyq"))
             {
-                this.AddNewTable();
-            }
-            if (!this.checkcolumnExist("balance", "zlyy"))
-            {
-                this.AddNewColumn("balance", "zlyy");
-                string sql = "insert into tbdesc(columnname, display, type) values('zlyy','质量异议',1)";
+                // 添加"特殊要求"列
+                this.AddNewColumn("balance", "tsyq");
+                string sql = "insert into tbdesc(columnname, display, type) values('tsyq','特殊要求',1)";
                 this.dbop.updatesql(sql);
             }
-            if (!this.checkcolumnExist("balance", "luhao"))
+            if (!this.checkcolumnExist("balance", "yf"))
             {
-                this.AddNewColumn("balance", "luhao");
-                string sql = "insert into tbdesc(columnname, display, type) values('luhao','炉号',1)";
+                // 添加"运费"列
+                this.AddNewColumn("balance", "yf");
+                string sql = "insert into tbdesc(columnname, display, type) values('yf','运费',1)";
                 this.dbop.updatesql(sql);
             }
-            if (!this.checktableExist("sundries"))
-            {
-                this.AddSundriesTable();
-            }
-            int tbdescColumnVarcharSize = this.getTbdescColumnVarcharSize("tbdesc", "append");
-            if (tbdescColumnVarcharSize < 2048)
-            {
-                string sql = "alter table tbdesc modify append varchar(2048)";
-                this.dbop.updatesql(sql);
-            }
-        }
-        private void AddSundriesTable()
-        {
-            string sql = "CREATE TABLE `sundries` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(25) NOT NULL,`value` varchar(512) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-            this.dbop.updatesql(sql);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

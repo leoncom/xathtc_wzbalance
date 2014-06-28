@@ -266,7 +266,7 @@ namespace wzbalance.src.Forms
         private bool input_check()
         {
             StringCollection inputOrder = Settings.Default.InputOrder;
-            StringCollection contractInput = Settings.Default.InputOrder;
+            StringCollection contractInput = Settings.Default.ContractInput;
             StringCollection caiGouInput = Settings.Default.CaiGouInput;
             StringCollection sellInput = Settings.Default.SellInput;
             return this.check_items_input(inputOrder, contractInput) && this.check_items_input(inputOrder, caiGouInput) && this.check_items_input(inputOrder, sellInput);
@@ -430,26 +430,33 @@ namespace wzbalance.src.Forms
                 string text37 = this.luhao.Text;
                 if (this.updateid == 0)
                 {
-                    string text38 = DateTime.Now.AddDays(-7.0).ToShortDateString();
-                    string sql;
-                    if (text3 != "" && text5 != "" && text6 != "")
+                    string text38 = DateTime.Now.AddMonths(-6).ToShortDateString();
+                    string sql = "";
+                    if (text3 != "" && text5 != "" && text6 != "" && 
+                        this.pinming.Text != "" && this.sellnum.Text != "" && this.pricewithtax.Text != "")
                     {
                         sql = string.Concat(new string[]
 						{
 							"select * from balance where sellman='",
 							text3,
+                            "' and pinming='",
+                            this.pinming.Text,
 							"' and paihao='",
 							text5,
-							"' and guige ='",
+							"' and guige='",
 							text6,
-							"' and created > '",
+                            "' and sellnum=",
+                            this.sellnum.Text,
+                            " and pricewithtax=",
+                            this.pricewithtax.Text,
+							" and created > '",
 							text38,
 							"'"
 						});
                         DataTable data = this.mfrm.dbop.getData(sql);
                         if (data.Rows.Count > 0)
                         {
-                            if (DialogResult.Yes != MessageBox.Show("最近七天内有相同的客户名、牌号、规格， 是否添加?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                            if (DialogResult.Yes != MessageBox.Show("最近180天内有相同的客户、名称、牌号、规格、合同量、销价， 是否添加?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                             {
                                 return;
                             }
@@ -458,7 +465,7 @@ namespace wzbalance.src.Forms
                     this.created = DateTime.Now.ToShortDateString();
                     sql = string.Concat(new string[]
 					{
-						"insert into balance(created, sellcontract, sellman, pinming, paihao, guige, jstj, jhzt, sellnum, pricewithtax, sellmoney, selldate, kucun, buyman, buycontract, location, jindu, rkgg, rkl, buyprice, buymoney, ckl,ckmoney, cksj, sellfapiao, buyfapiao, fczd, fxrq, rkrq, yffp,bz,planprice,planmoney,thhtbh,modifyuser,rkdbh,ckdbh,zlyy,luhao)values('",
+						"insert into balance(created, sellcontract, sellman, pinming, paihao, guige, jstj, jhzt, sellnum, pricewithtax, sellmoney, selldate, kucun, buyman, buycontract, location, jindu, rkgg, rkl, buyprice, buymoney, ckl,ckmoney, cksj, sellfapiao, buyfapiao, fczd, fxrq, rkrq, yffp,bz,planprice,planmoney,thhtbh,modifyuser,rkdbh,ckdbh,zlyy,luhao,tsyq,yf)values('",
 						this.created,
 						"','",
 						text2,
@@ -536,6 +543,10 @@ namespace wzbalance.src.Forms
 						text36,
 						"','",
 						text37,
+                        "','",
+                        this.tsyq.Text,
+                        "','",
+                        this.yf.Text,
 						"')"
 					});
                     int num7 = this.mfrm.dbop.updatesql(sql);
@@ -562,7 +573,7 @@ namespace wzbalance.src.Forms
                     this.mfrm.dbop.updatesql(sql2);
                     string sql = string.Concat(new object[]
 					{
-						"insert into balance(id, created, sellcontract, sellman, pinming, paihao, guige, jstj, jhzt, sellnum, pricewithtax, sellmoney, selldate, kucun, buyman, buycontract, location, jindu, rkgg, rkl, buyprice, buymoney,ckl,ckmoney, cksj, sellfapiao, buyfapiao, fczd, fxrq, rkrq, yffp,bz,planprice,planmoney,thhtbh,modifyuser,rkdbh,ckdbh,zlyy,luhao)values(",
+						"insert into balance(id, created, sellcontract, sellman, pinming, paihao, guige, jstj, jhzt, sellnum, pricewithtax, sellmoney, selldate, kucun, buyman, buycontract, location, jindu, rkgg, rkl, buyprice, buymoney,ckl,ckmoney, cksj, sellfapiao, buyfapiao, fczd, fxrq, rkrq, yffp,bz,planprice,planmoney,thhtbh,modifyuser,rkdbh,ckdbh,zlyy,luhao,tsyq,yf)values(",
 						this.updateid,
 						",'",
 						this.created,
@@ -642,6 +653,10 @@ namespace wzbalance.src.Forms
 						text36,
 						"','",
 						text37,
+                        "','",
+                        this.tsyq.Text,
+                        "','",
+                        this.yf.Text,
 						"')"
 					});
                     int num7 = this.mfrm.dbop.updatesql(sql);
@@ -867,5 +882,6 @@ namespace wzbalance.src.Forms
                 comboBox.SelectedIndex = -1;
             }
         }
+
     }
 }

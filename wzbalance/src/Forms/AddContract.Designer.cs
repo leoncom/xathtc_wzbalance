@@ -41,13 +41,11 @@ namespace wzbalance.src.Forms
         private Label sellcontractlabel;
         private Label buycontractlabel;
         private Label buyfapiaolabel;
-        private Label fxrqlabel;
         private Label yffplabel;
         private DateTimePicker cksj;
         private DateTimePicker sellfapiao;
         private DateTimePicker buyfapiao;
         private ComboBox kucun;
-        private DateTimePicker fxrq;
         private DateTimePicker rkrq;
         private ComboBox buycontract;
         private ComboBox jindu;
@@ -85,7 +83,7 @@ namespace wzbalance.src.Forms
         private TextBox ckdbh;
         private Label zlyylabel;
         private TextBox zlyy;
-        private ComboBox luhao;
+        private TextBox luhao;
         private Label luhaolabel;
 
         /// <summary>
@@ -140,13 +138,11 @@ namespace wzbalance.src.Forms
             this.sellcontractlabel = new System.Windows.Forms.Label();
             this.buycontractlabel = new System.Windows.Forms.Label();
             this.buyfapiaolabel = new System.Windows.Forms.Label();
-            this.fxrqlabel = new System.Windows.Forms.Label();
             this.yffplabel = new System.Windows.Forms.Label();
             this.cksj = new System.Windows.Forms.DateTimePicker();
             this.sellfapiao = new System.Windows.Forms.DateTimePicker();
             this.buyfapiao = new System.Windows.Forms.DateTimePicker();
             this.kucun = new System.Windows.Forms.ComboBox();
-            this.fxrq = new System.Windows.Forms.DateTimePicker();
             this.rkrq = new System.Windows.Forms.DateTimePicker();
             this.buycontract = new System.Windows.Forms.ComboBox();
             this.jindu = new System.Windows.Forms.ComboBox();
@@ -168,24 +164,30 @@ namespace wzbalance.src.Forms
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rkdbhlabel = new System.Windows.Forms.Label();
             this.rkdbh = new System.Windows.Forms.TextBox();
-            this.location = new wzbalance.ComboBoxEx();
-            this.buyman = new wzbalance.ComboBoxEx();
             this.planprice = new System.Windows.Forms.TextBox();
             this.planpricelabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.thhtbh = new System.Windows.Forms.TextBox();
-            this.sellman = new wzbalance.ComboBoxEx();
-            this.pinming = new wzbalance.ComboBoxEx();
-            this.jhzt = new wzbalance.ComboBoxEx();
+            this.yf = new System.Windows.Forms.TextBox();
+            this.tsyq = new System.Windows.Forms.TextBox();
+            this.yflabel = new System.Windows.Forms.Label();
+            this.tsyqlabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.luhao = new System.Windows.Forms.TextBox();
+            this.luhaolabel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ckdbhlabel = new System.Windows.Forms.Label();
             this.ckdbh = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.zlyy = new System.Windows.Forms.TextBox();
             this.zlyylabel = new System.Windows.Forms.Label();
-            this.luhao = new System.Windows.Forms.ComboBox();
-            this.luhaolabel = new System.Windows.Forms.Label();
+            this.fxrq = new System.Windows.Forms.DateTimePicker();
+            this.fxrqlabel = new System.Windows.Forms.Label();
+            this.sellman = new wzbalance.ComboBoxEx();
+            this.pinming = new wzbalance.ComboBoxEx();
+            this.jhzt = new wzbalance.ComboBoxEx();
+            this.location = new wzbalance.ComboBoxEx();
+            this.buyman = new wzbalance.ComboBoxEx();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -225,21 +227,23 @@ namespace wzbalance.src.Forms
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(660, 654);
+            this.button1.Location = new System.Drawing.Point(660, 693);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "取消";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(759, 654);
+            this.button2.Location = new System.Drawing.Point(757, 693);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "确定";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -335,7 +339,7 @@ namespace wzbalance.src.Forms
             // 
             this.selldatelabel.AutoSize = true;
             this.selldatelabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.selldatelabel.Location = new System.Drawing.Point(282, 143);
+            this.selldatelabel.Location = new System.Drawing.Point(533, 143);
             this.selldatelabel.Name = "selldatelabel";
             this.selldatelabel.Size = new System.Drawing.Size(49, 14);
             this.selldatelabel.TabIndex = 0;
@@ -481,21 +485,11 @@ namespace wzbalance.src.Forms
             this.buyfapiaolabel.TabIndex = 0;
             this.buyfapiaolabel.Text = "进项发票日期";
             // 
-            // fxrqlabel
-            // 
-            this.fxrqlabel.AutoSize = true;
-            this.fxrqlabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.fxrqlabel.Location = new System.Drawing.Point(534, 26);
-            this.fxrqlabel.Name = "fxrqlabel";
-            this.fxrqlabel.Size = new System.Drawing.Size(63, 14);
-            this.fxrqlabel.TabIndex = 0;
-            this.fxrqlabel.Text = "发信日期";
-            // 
             // yffplabel
             // 
             this.yffplabel.AutoSize = true;
             this.yffplabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.yffplabel.Location = new System.Drawing.Point(277, 27);
+            this.yffplabel.Location = new System.Drawing.Point(536, 63);
             this.yffplabel.Name = "yffplabel";
             this.yffplabel.Size = new System.Drawing.Size(63, 14);
             this.yffplabel.TabIndex = 0;
@@ -509,7 +503,7 @@ namespace wzbalance.src.Forms
             this.cksj.Name = "cksj";
             this.cksj.ShowCheckBox = true;
             this.cksj.Size = new System.Drawing.Size(121, 21);
-            this.cksj.TabIndex = 25;
+            this.cksj.TabIndex = 28;
             // 
             // sellfapiao
             // 
@@ -519,7 +513,7 @@ namespace wzbalance.src.Forms
             this.sellfapiao.Name = "sellfapiao";
             this.sellfapiao.ShowCheckBox = true;
             this.sellfapiao.Size = new System.Drawing.Size(121, 21);
-            this.sellfapiao.TabIndex = 29;
+            this.sellfapiao.TabIndex = 31;
             // 
             // buyfapiao
             // 
@@ -529,7 +523,7 @@ namespace wzbalance.src.Forms
             this.buyfapiao.Name = "buyfapiao";
             this.buyfapiao.ShowCheckBox = true;
             this.buyfapiao.Size = new System.Drawing.Size(121, 21);
-            this.buyfapiao.TabIndex = 30;
+            this.buyfapiao.TabIndex = 32;
             // 
             // kucun
             // 
@@ -539,17 +533,7 @@ namespace wzbalance.src.Forms
             this.kucun.Location = new System.Drawing.Point(133, 20);
             this.kucun.Name = "kucun";
             this.kucun.Size = new System.Drawing.Size(121, 20);
-            this.kucun.TabIndex = 12;
-            // 
-            // fxrq
-            // 
-            this.fxrq.Checked = false;
-            this.fxrq.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fxrq.Location = new System.Drawing.Point(630, 20);
-            this.fxrq.Name = "fxrq";
-            this.fxrq.ShowCheckBox = true;
-            this.fxrq.Size = new System.Drawing.Size(121, 21);
-            this.fxrq.TabIndex = 28;
+            this.kucun.TabIndex = 14;
             // 
             // rkrq
             // 
@@ -559,7 +543,7 @@ namespace wzbalance.src.Forms
             this.rkrq.Name = "rkrq";
             this.rkrq.ShowCheckBox = true;
             this.rkrq.Size = new System.Drawing.Size(121, 21);
-            this.rkrq.TabIndex = 22;
+            this.rkrq.TabIndex = 25;
             // 
             // buycontract
             // 
@@ -569,7 +553,7 @@ namespace wzbalance.src.Forms
             this.buycontract.Location = new System.Drawing.Point(632, 20);
             this.buycontract.Name = "buycontract";
             this.buycontract.Size = new System.Drawing.Size(121, 20);
-            this.buycontract.TabIndex = 16;
+            this.buycontract.TabIndex = 19;
             // 
             // jindu
             // 
@@ -579,17 +563,17 @@ namespace wzbalance.src.Forms
             this.jindu.Location = new System.Drawing.Point(374, 55);
             this.jindu.Name = "jindu";
             this.jindu.Size = new System.Drawing.Size(121, 20);
-            this.jindu.TabIndex = 18;
+            this.jindu.TabIndex = 21;
             // 
             // yffp
             // 
             this.yffp.ContextMenuStrip = this.contextMenuStrip1;
             this.yffp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.yffp.FormattingEnabled = true;
-            this.yffp.Location = new System.Drawing.Point(376, 21);
+            this.yffp.Location = new System.Drawing.Point(635, 57);
             this.yffp.Name = "yffp";
             this.yffp.Size = new System.Drawing.Size(121, 20);
-            this.yffp.TabIndex = 27;
+            this.yffp.TabIndex = 33;
             // 
             // paihao
             // 
@@ -616,11 +600,11 @@ namespace wzbalance.src.Forms
             this.selldate.ContextMenuStrip = this.contextMenuStrip1;
             this.selldate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selldate.FormattingEnabled = true;
-            this.selldate.Location = new System.Drawing.Point(378, 142);
+            this.selldate.Location = new System.Drawing.Point(632, 142);
             this.selldate.MaxDropDownItems = 11;
             this.selldate.Name = "selldate";
             this.selldate.Size = new System.Drawing.Size(121, 20);
-            this.selldate.TabIndex = 11;
+            this.selldate.TabIndex = 12;
             // 
             // sellnum
             // 
@@ -648,28 +632,28 @@ namespace wzbalance.src.Forms
             this.rkgg.Location = new System.Drawing.Point(632, 54);
             this.rkgg.Name = "rkgg";
             this.rkgg.Size = new System.Drawing.Size(121, 21);
-            this.rkgg.TabIndex = 19;
+            this.rkgg.TabIndex = 22;
             // 
             // rkl
             // 
             this.rkl.Location = new System.Drawing.Point(133, 94);
             this.rkl.Name = "rkl";
             this.rkl.Size = new System.Drawing.Size(121, 21);
-            this.rkl.TabIndex = 20;
+            this.rkl.TabIndex = 23;
             // 
             // buyprice
             // 
             this.buyprice.Location = new System.Drawing.Point(373, 94);
             this.buyprice.Name = "buyprice";
             this.buyprice.Size = new System.Drawing.Size(121, 21);
-            this.buyprice.TabIndex = 21;
+            this.buyprice.TabIndex = 24;
             // 
             // ckl
             // 
             this.ckl.Location = new System.Drawing.Point(375, 21);
             this.ckl.Name = "ckl";
             this.ckl.Size = new System.Drawing.Size(121, 21);
-            this.ckl.TabIndex = 24;
+            this.ckl.TabIndex = 27;
             // 
             // sellcontract
             // 
@@ -682,7 +666,7 @@ namespace wzbalance.src.Forms
             // 
             this.bzlabel.AutoSize = true;
             this.bzlabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bzlabel.Location = new System.Drawing.Point(21, 109);
+            this.bzlabel.Location = new System.Drawing.Point(21, 29);
             this.bzlabel.Name = "bzlabel";
             this.bzlabel.Size = new System.Drawing.Size(35, 14);
             this.bzlabel.TabIndex = 27;
@@ -690,10 +674,10 @@ namespace wzbalance.src.Forms
             // 
             // bz
             // 
-            this.bz.Location = new System.Drawing.Point(131, 102);
+            this.bz.Location = new System.Drawing.Point(131, 22);
             this.bz.Name = "bz";
             this.bz.Size = new System.Drawing.Size(121, 21);
-            this.bz.TabIndex = 31;
+            this.bz.TabIndex = 29;
             // 
             // ckllabel
             // 
@@ -725,12 +709,13 @@ namespace wzbalance.src.Forms
             this.groupBox1.Controls.Add(this.buypricelabel);
             this.groupBox1.Controls.Add(this.locationlabel);
             this.groupBox1.Controls.Add(this.rkgglabel);
-            this.groupBox1.Location = new System.Drawing.Point(28, 288);
+            this.groupBox1.Location = new System.Drawing.Point(28, 320);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(807, 130);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "采购入库";
+            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // rkdbhlabel
             // 
@@ -747,36 +732,20 @@ namespace wzbalance.src.Forms
             this.rkdbh.Location = new System.Drawing.Point(133, 20);
             this.rkdbh.Name = "rkdbh";
             this.rkdbh.Size = new System.Drawing.Size(121, 21);
-            this.rkdbh.TabIndex = 14;
-            // 
-            // location
-            // 
-            this.location.FormattingEnabled = true;
-            this.location.Location = new System.Drawing.Point(133, 55);
-            this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(121, 20);
-            this.location.TabIndex = 17;
-            // 
-            // buyman
-            // 
-            this.buyman.FormattingEnabled = true;
-            this.buyman.Location = new System.Drawing.Point(374, 20);
-            this.buyman.Name = "buyman";
-            this.buyman.Size = new System.Drawing.Size(121, 20);
-            this.buyman.TabIndex = 15;
+            this.rkdbh.TabIndex = 17;
             // 
             // planprice
             // 
-            this.planprice.Location = new System.Drawing.Point(378, 20);
+            this.planprice.Location = new System.Drawing.Point(632, 19);
             this.planprice.Name = "planprice";
             this.planprice.Size = new System.Drawing.Size(121, 21);
-            this.planprice.TabIndex = 13;
+            this.planprice.TabIndex = 16;
             // 
             // planpricelabel
             // 
             this.planpricelabel.AutoSize = true;
             this.planpricelabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.planpricelabel.Location = new System.Drawing.Point(280, 21);
+            this.planpricelabel.Location = new System.Drawing.Point(534, 20);
             this.planpricelabel.Name = "planpricelabel";
             this.planpricelabel.Size = new System.Drawing.Size(63, 14);
             this.planpricelabel.TabIndex = 0;
@@ -788,9 +757,13 @@ namespace wzbalance.src.Forms
             this.groupBox2.Controls.Add(this.thhtbhlabel);
             this.groupBox2.Controls.Add(this.pinminglabel);
             this.groupBox2.Controls.Add(this.thhtbh);
+            this.groupBox2.Controls.Add(this.yf);
+            this.groupBox2.Controls.Add(this.tsyq);
             this.groupBox2.Controls.Add(this.sellcontract);
             this.groupBox2.Controls.Add(this.paihaolabel);
+            this.groupBox2.Controls.Add(this.yflabel);
             this.groupBox2.Controls.Add(this.guigelabel);
+            this.groupBox2.Controls.Add(this.tsyqlabel);
             this.groupBox2.Controls.Add(this.sellmanlabel);
             this.groupBox2.Controls.Add(this.sellcontractlabel);
             this.groupBox2.Controls.Add(this.pricewithtax);
@@ -808,10 +781,11 @@ namespace wzbalance.src.Forms
             this.groupBox2.Controls.Add(this.pricewithtaxlabel);
             this.groupBox2.Location = new System.Drawing.Point(28, 24);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(807, 177);
+            this.groupBox2.Size = new System.Drawing.Size(807, 211);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "合同录入";
+            this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
             // 
             // thhtbh
             // 
@@ -819,6 +793,165 @@ namespace wzbalance.src.Forms
             this.thhtbh.Name = "thhtbh";
             this.thhtbh.Size = new System.Drawing.Size(121, 21);
             this.thhtbh.TabIndex = 1;
+            // 
+            // yf
+            // 
+            this.yf.Location = new System.Drawing.Point(131, 177);
+            this.yf.Name = "yf";
+            this.yf.Size = new System.Drawing.Size(121, 21);
+            this.yf.TabIndex = 13;
+            // 
+            // tsyq
+            // 
+            this.tsyq.Location = new System.Drawing.Point(379, 141);
+            this.tsyq.Name = "tsyq";
+            this.tsyq.Size = new System.Drawing.Size(121, 21);
+            this.tsyq.TabIndex = 11;
+            // 
+            // yflabel
+            // 
+            this.yflabel.AutoSize = true;
+            this.yflabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.yflabel.Location = new System.Drawing.Point(22, 184);
+            this.yflabel.Name = "yflabel";
+            this.yflabel.Size = new System.Drawing.Size(35, 14);
+            this.yflabel.TabIndex = 0;
+            this.yflabel.Text = "运费";
+            // 
+            // tsyqlabel
+            // 
+            this.tsyqlabel.AutoSize = true;
+            this.tsyqlabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tsyqlabel.Location = new System.Drawing.Point(279, 148);
+            this.tsyqlabel.Name = "tsyqlabel";
+            this.tsyqlabel.Size = new System.Drawing.Size(63, 14);
+            this.tsyqlabel.TabIndex = 0;
+            this.tsyqlabel.Text = "特殊要求";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.kucun);
+            this.groupBox3.Controls.Add(this.kucunlabel);
+            this.groupBox3.Controls.Add(this.planprice);
+            this.groupBox3.Controls.Add(this.planpricelabel);
+            this.groupBox3.Controls.Add(this.luhao);
+            this.groupBox3.Controls.Add(this.luhaolabel);
+            this.groupBox3.Location = new System.Drawing.Point(28, 250);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(807, 53);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "库存及计划价";
+            this.groupBox3.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox3_Paint);
+            // 
+            // luhao
+            // 
+            this.luhao.Location = new System.Drawing.Point(373, 19);
+            this.luhao.Name = "luhao";
+            this.luhao.Size = new System.Drawing.Size(121, 21);
+            this.luhao.TabIndex = 15;
+            // 
+            // luhaolabel
+            // 
+            this.luhaolabel.AutoSize = true;
+            this.luhaolabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.luhaolabel.Location = new System.Drawing.Point(303, 26);
+            this.luhaolabel.Name = "luhaolabel";
+            this.luhaolabel.Size = new System.Drawing.Size(35, 14);
+            this.luhaolabel.TabIndex = 0;
+            this.luhaolabel.Text = "炉号";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.ckllabel);
+            this.groupBox4.Controls.Add(this.ckdbhlabel);
+            this.groupBox4.Controls.Add(this.ckl);
+            this.groupBox4.Controls.Add(this.cksj);
+            this.groupBox4.Controls.Add(this.cksjlabel);
+            this.groupBox4.Controls.Add(this.ckdbh);
+            this.groupBox4.Location = new System.Drawing.Point(28, 468);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(807, 55);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "销售出库";
+            this.groupBox4.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox4_Paint);
+            // 
+            // ckdbhlabel
+            // 
+            this.ckdbhlabel.AutoSize = true;
+            this.ckdbhlabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ckdbhlabel.Location = new System.Drawing.Point(21, 27);
+            this.ckdbhlabel.Name = "ckdbhlabel";
+            this.ckdbhlabel.Size = new System.Drawing.Size(77, 14);
+            this.ckdbhlabel.TabIndex = 0;
+            this.ckdbhlabel.Text = "出库单编号";
+            // 
+            // ckdbh
+            // 
+            this.ckdbh.Location = new System.Drawing.Point(133, 26);
+            this.ckdbh.Name = "ckdbh";
+            this.ckdbh.Size = new System.Drawing.Size(121, 21);
+            this.ckdbh.TabIndex = 26;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.bz);
+            this.groupBox5.Controls.Add(this.yffp);
+            this.groupBox5.Controls.Add(this.zlyy);
+            this.groupBox5.Controls.Add(this.buyfapiao);
+            this.groupBox5.Controls.Add(this.buyfapiaolabel);
+            this.groupBox5.Controls.Add(this.fxrqlabel);
+            this.groupBox5.Controls.Add(this.sellfapiaolabel);
+            this.groupBox5.Controls.Add(this.fxrq);
+            this.groupBox5.Controls.Add(this.bzlabel);
+            this.groupBox5.Controls.Add(this.sellfapiao);
+            this.groupBox5.Controls.Add(this.zlyylabel);
+            this.groupBox5.Controls.Add(this.yffplabel);
+            this.groupBox5.Location = new System.Drawing.Point(28, 542);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(804, 145);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "票据及备注";
+            this.groupBox5.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox5_Paint);
+            // 
+            // zlyy
+            // 
+            this.zlyy.Location = new System.Drawing.Point(377, 22);
+            this.zlyy.Name = "zlyy";
+            this.zlyy.Size = new System.Drawing.Size(379, 21);
+            this.zlyy.TabIndex = 30;
+            // 
+            // zlyylabel
+            // 
+            this.zlyylabel.AutoSize = true;
+            this.zlyylabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.zlyylabel.Location = new System.Drawing.Point(280, 29);
+            this.zlyylabel.Name = "zlyylabel";
+            this.zlyylabel.Size = new System.Drawing.Size(63, 14);
+            this.zlyylabel.TabIndex = 0;
+            this.zlyylabel.Text = "质量异议";
+            // 
+            // fxrq
+            // 
+            this.fxrq.Checked = false;
+            this.fxrq.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fxrq.Location = new System.Drawing.Point(131, 100);
+            this.fxrq.Name = "fxrq";
+            this.fxrq.ShowCheckBox = true;
+            this.fxrq.Size = new System.Drawing.Size(121, 21);
+            this.fxrq.TabIndex = 34;
+            // 
+            // fxrqlabel
+            // 
+            this.fxrqlabel.AutoSize = true;
+            this.fxrqlabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.fxrqlabel.Location = new System.Drawing.Point(19, 107);
+            this.fxrqlabel.Name = "fxrqlabel";
+            this.fxrqlabel.Size = new System.Drawing.Size(63, 14);
+            this.fxrqlabel.TabIndex = 0;
+            this.fxrqlabel.Text = "发信日期";
             // 
             // sellman
             // 
@@ -845,119 +978,31 @@ namespace wzbalance.src.Forms
             this.jhzt.Size = new System.Drawing.Size(121, 20);
             this.jhzt.TabIndex = 10;
             // 
-            // groupBox3
+            // location
             // 
-            this.groupBox3.Controls.Add(this.kucun);
-            this.groupBox3.Controls.Add(this.kucunlabel);
-            this.groupBox3.Controls.Add(this.planprice);
-            this.groupBox3.Controls.Add(this.planpricelabel);
-            this.groupBox3.Location = new System.Drawing.Point(28, 219);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(807, 53);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "库存及计划价";
+            this.location.FormattingEnabled = true;
+            this.location.Location = new System.Drawing.Point(133, 55);
+            this.location.Name = "location";
+            this.location.Size = new System.Drawing.Size(121, 20);
+            this.location.TabIndex = 20;
             // 
-            // groupBox4
+            // buyman
             // 
-            this.groupBox4.Controls.Add(this.ckllabel);
-            this.groupBox4.Controls.Add(this.ckdbhlabel);
-            this.groupBox4.Controls.Add(this.ckl);
-            this.groupBox4.Controls.Add(this.cksj);
-            this.groupBox4.Controls.Add(this.cksjlabel);
-            this.groupBox4.Controls.Add(this.ckdbh);
-            this.groupBox4.Location = new System.Drawing.Point(28, 433);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(807, 55);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "销售出库";
+            this.buyman.FormattingEnabled = true;
+            this.buyman.Location = new System.Drawing.Point(374, 20);
+            this.buyman.Name = "buyman";
+            this.buyman.Size = new System.Drawing.Size(121, 20);
+            this.buyman.TabIndex = 18;
             // 
-            // ckdbhlabel
-            // 
-            this.ckdbhlabel.AutoSize = true;
-            this.ckdbhlabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ckdbhlabel.Location = new System.Drawing.Point(21, 27);
-            this.ckdbhlabel.Name = "ckdbhlabel";
-            this.ckdbhlabel.Size = new System.Drawing.Size(77, 14);
-            this.ckdbhlabel.TabIndex = 0;
-            this.ckdbhlabel.Text = "出库单编号";
-            // 
-            // ckdbh
-            // 
-            this.ckdbh.Location = new System.Drawing.Point(133, 26);
-            this.ckdbh.Name = "ckdbh";
-            this.ckdbh.Size = new System.Drawing.Size(121, 21);
-            this.ckdbh.TabIndex = 23;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.bz);
-            this.groupBox5.Controls.Add(this.yffp);
-            this.groupBox5.Controls.Add(this.zlyy);
-            this.groupBox5.Controls.Add(this.buyfapiao);
-            this.groupBox5.Controls.Add(this.buyfapiaolabel);
-            this.groupBox5.Controls.Add(this.sellfapiaolabel);
-            this.groupBox5.Controls.Add(this.bzlabel);
-            this.groupBox5.Controls.Add(this.sellfapiao);
-            this.groupBox5.Controls.Add(this.zlyylabel);
-            this.groupBox5.Controls.Add(this.fxrqlabel);
-            this.groupBox5.Controls.Add(this.fxrq);
-            this.groupBox5.Controls.Add(this.luhao);
-            this.groupBox5.Controls.Add(this.yffplabel);
-            this.groupBox5.Controls.Add(this.luhaolabel);
-            this.groupBox5.Location = new System.Drawing.Point(30, 494);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(804, 147);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "票据及备注";
-            // 
-            // zlyy
-            // 
-            this.zlyy.Location = new System.Drawing.Point(377, 102);
-            this.zlyy.Name = "zlyy";
-            this.zlyy.Size = new System.Drawing.Size(379, 21);
-            this.zlyy.TabIndex = 32;
-            // 
-            // zlyylabel
-            // 
-            this.zlyylabel.AutoSize = true;
-            this.zlyylabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.zlyylabel.Location = new System.Drawing.Point(280, 109);
-            this.zlyylabel.Name = "zlyylabel";
-            this.zlyylabel.Size = new System.Drawing.Size(63, 14);
-            this.zlyylabel.TabIndex = 0;
-            this.zlyylabel.Text = "质量异议";
-            // 
-            // luhao
-            // 
-            this.luhao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.luhao.FormattingEnabled = true;
-            this.luhao.Location = new System.Drawing.Point(131, 20);
-            this.luhao.Name = "luhao";
-            this.luhao.Size = new System.Drawing.Size(121, 150);
-            this.luhao.TabIndex = 26;
-            // 
-            // luhaolabel
-            // 
-            this.luhaolabel.AutoSize = true;
-            this.luhaolabel.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.luhaolabel.Location = new System.Drawing.Point(19, 27);
-            this.luhaolabel.Name = "luhaolabel";
-            this.luhaolabel.Size = new System.Drawing.Size(35, 14);
-            this.luhaolabel.TabIndex = 0;
-            this.luhaolabel.Text = "炉号";
-            // 
-            // AddContractForm
+            // AddContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 751);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -965,7 +1010,7 @@ namespace wzbalance.src.Forms
             this.Location = new System.Drawing.Point(450, 50);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AddContractForm";
+            this.Name = "AddContract";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "添加新项目";
             this.contextMenuStrip1.ResumeLayout(false);
@@ -985,5 +1030,12 @@ namespace wzbalance.src.Forms
         }
 
         #endregion
+
+        private TextBox tsyq;
+        private Label tsyqlabel;
+        private TextBox yf;
+        private Label yflabel;
+        private Label fxrqlabel;
+        private DateTimePicker fxrq;
     }
 }

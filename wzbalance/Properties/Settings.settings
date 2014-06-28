@@ -40,19 +40,73 @@
     </Setting>
     <Setting Name="InputOrder" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;thhtbh&lt;/string&gt;
+  &lt;string&gt;sellcontract&lt;/string&gt;
+  &lt;string&gt;sellman&lt;/string&gt;
+  &lt;string&gt;pinming&lt;/string&gt;
+  &lt;string&gt;paihao&lt;/string&gt;
+  &lt;string&gt;guige&lt;/string&gt;
+  &lt;string&gt;sellnum&lt;/string&gt;
+  &lt;string&gt;pricewithtax&lt;/string&gt;
+  &lt;string&gt;jstj&lt;/string&gt;
+  &lt;string&gt;jhzt&lt;/string&gt;
+  &lt;string&gt;tsyq&lt;/string&gt;
+  &lt;string&gt;selldate&lt;/string&gt;
+  &lt;string&gt;yf&lt;/string&gt;
+  &lt;string&gt;kucun&lt;/string&gt;
+  &lt;string&gt;luhao&lt;/string&gt;
+  &lt;string&gt;planprice&lt;/string&gt;
+  &lt;string&gt;rkdbh&lt;/string&gt;
+  &lt;string&gt;buyman&lt;/string&gt;
+  &lt;string&gt;buycontract&lt;/string&gt;
+  &lt;string&gt;location&lt;/string&gt;
+  &lt;string&gt;jindu&lt;/string&gt;
+  &lt;string&gt;rkgg&lt;/string&gt;
+  &lt;string&gt;rkl&lt;/string&gt;
+  &lt;string&gt;buyprice&lt;/string&gt;
+  &lt;string&gt;rkrq&lt;/string&gt;
+  &lt;string&gt;ckdbh&lt;/string&gt;
+  &lt;string&gt;ckl&lt;/string&gt;
+  &lt;string&gt;cksj&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="ContractInput" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;1&lt;/string&gt;
+  &lt;string&gt;3&lt;/string&gt;
+  &lt;string&gt;4&lt;/string&gt;
+  &lt;string&gt;5&lt;/string&gt;
+  &lt;string&gt;6&lt;/string&gt;
+  &lt;string&gt;7&lt;/string&gt;
+  &lt;string&gt;8&lt;/string&gt;
+  &lt;string&gt;9&lt;/string&gt;
+  &lt;string&gt;10&lt;/string&gt;
+  &lt;string&gt;11&lt;/string&gt;
+  &lt;string&gt;17&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="CaiGouInput" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;14&lt;/string&gt;
+  &lt;string&gt;15&lt;/string&gt;
+  &lt;string&gt;16&lt;/string&gt;
+  &lt;string&gt;17&lt;/string&gt;
+  &lt;string&gt;19&lt;/string&gt;
+  &lt;string&gt;20&lt;/string&gt;
+  &lt;string&gt;21&lt;/string&gt;
+  &lt;string&gt;22&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="SellInput" Type="System.Collections.Specialized.StringCollection" Scope="Application">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;23&lt;/string&gt;
+  &lt;string&gt;24&lt;/string&gt;
+  &lt;string&gt;25&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="ContactMngLocX" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">350</Value>

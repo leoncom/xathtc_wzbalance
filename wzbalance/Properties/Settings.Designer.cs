@@ -160,8 +160,37 @@ namespace wzbalance.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
-            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" />")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>thhtbh</string>
+  <string>sellcontract</string>
+  <string>sellman</string>
+  <string>pinming</string>
+  <string>paihao</string>
+  <string>guige</string>
+  <string>sellnum</string>
+  <string>pricewithtax</string>
+  <string>jstj</string>
+  <string>jhzt</string>
+  <string>tsyq</string>
+  <string>selldate</string>
+  <string>yf</string>
+  <string>kucun</string>
+  <string>luhao</string>
+  <string>planprice</string>
+  <string>rkdbh</string>
+  <string>buyman</string>
+  <string>buycontract</string>
+  <string>location</string>
+  <string>jindu</string>
+  <string>rkgg</string>
+  <string>rkl</string>
+  <string>buyprice</string>
+  <string>rkrq</string>
+  <string>ckdbh</string>
+  <string>ckl</string>
+  <string>cksj</string>
+</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection InputOrder {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["InputOrder"]));
@@ -170,8 +199,20 @@ namespace wzbalance.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
-            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" />")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>1</string>
+  <string>3</string>
+  <string>4</string>
+  <string>5</string>
+  <string>6</string>
+  <string>7</string>
+  <string>8</string>
+  <string>9</string>
+  <string>10</string>
+  <string>11</string>
+  <string>17</string>
+</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection ContractInput {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["ContractInput"]));
@@ -180,8 +221,17 @@ namespace wzbalance.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
-            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" />")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>14</string>
+  <string>15</string>
+  <string>16</string>
+  <string>17</string>
+  <string>19</string>
+  <string>20</string>
+  <string>21</string>
+  <string>22</string>
+</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection CaiGouInput {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["CaiGouInput"]));
@@ -191,7 +241,9 @@ namespace wzbalance.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
-            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" />")]
+            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
+            "tring>23</string>\r\n  <string>24</string>\r\n  <string>25</string>\r\n</ArrayOfString" +
+            ">")]
         public global::System.Collections.Specialized.StringCollection SellInput {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["SellInput"]));
