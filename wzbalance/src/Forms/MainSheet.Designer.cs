@@ -178,6 +178,7 @@ namespace wzbalance.src.Forms
             this.标题栏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.内容ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置当前显示格式设置为默认ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.通讯录CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新建联系人NToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.管理通讯录MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -220,10 +221,8 @@ namespace wzbalance.src.Forms
             this.cksjlabel = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
             this.buycontract = new System.Windows.Forms.ComboBox();
-            this.buyman = new wzbalance.ComboBoxEx();
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
-            this.sellman = new wzbalance.ComboBoxEx();
             this.button21 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -266,6 +265,8 @@ namespace wzbalance.src.Forms
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.buyman = new wzbalance.ComboBoxEx();
+            this.sellman = new wzbalance.ComboBoxEx();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -335,7 +336,8 @@ namespace wzbalance.src.Forms
             this.恢复默认显示顺序ToolStripMenuItem,
             this.每页显示个数ToolStripMenuItem,
             this.设置字体ToolStripMenuItem,
-            this.设置当前显示格式设置为默认ToolStripMenuItem});
+            this.设置当前显示格式设置为默认ToolStripMenuItem,
+            this.toolStripMenuItem8});
             this.表单ToolStripMenuItem.Name = "表单ToolStripMenuItem";
             this.表单ToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.表单ToolStripMenuItem.Text = "设置(&S)";
@@ -461,6 +463,13 @@ namespace wzbalance.src.Forms
             this.设置当前显示格式设置为默认ToolStripMenuItem.Text = "设置当前列序为默认";
             this.设置当前显示格式设置为默认ToolStripMenuItem.Click += new System.EventHandler(this.设置当前显示格式设置为默认ToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(178, 22);
+            this.toolStripMenuItem8.Text = "管理合同录入规则";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
             // 通讯录CToolStripMenuItem
             // 
             this.通讯录CToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -583,21 +592,21 @@ namespace wzbalance.src.Forms
             // 添加新模板NToolStripMenuItem
             // 
             this.添加新模板NToolStripMenuItem.Name = "添加新模板NToolStripMenuItem";
-            this.添加新模板NToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.添加新模板NToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.添加新模板NToolStripMenuItem.Text = "添加新模板(&N)";
             this.添加新模板NToolStripMenuItem.Click += new System.EventHandler(this.添加新模板NToolStripMenuItem_Click);
             // 
             // 编辑模板EToolStripMenuItem
             // 
             this.编辑模板EToolStripMenuItem.Name = "编辑模板EToolStripMenuItem";
-            this.编辑模板EToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.编辑模板EToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.编辑模板EToolStripMenuItem.Text = "编辑模板(&E)";
             this.编辑模板EToolStripMenuItem.Click += new System.EventHandler(this.编辑模板EToolStripMenuItem_Click);
             // 
             // 删除模板DToolStripMenuItem
             // 
             this.删除模板DToolStripMenuItem.Name = "删除模板DToolStripMenuItem";
-            this.删除模板DToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.删除模板DToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.删除模板DToolStripMenuItem.Text = "删除模板(&D)";
             this.删除模板DToolStripMenuItem.Click += new System.EventHandler(this.删除模板DToolStripMenuItem_Click);
             // 
@@ -855,16 +864,6 @@ namespace wzbalance.src.Forms
             this.buycontract.TabIndex = 4;
             this.buycontract.KeyDown += new System.Windows.Forms.KeyEventHandler(this.buycontract_KeyDown);
             // 
-            // buyman
-            // 
-            this.buyman.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.buyman.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.buyman.FormattingEnabled = true;
-            this.buyman.Location = new System.Drawing.Point(12, 194);
-            this.buyman.Name = "buyman";
-            this.buyman.Size = new System.Drawing.Size(100, 20);
-            this.buyman.TabIndex = 4;
-            // 
             // button18
             // 
             this.button18.BackgroundImage = global::wzbalance.Properties.Resources.search;
@@ -886,14 +885,6 @@ namespace wzbalance.src.Forms
             this.button19.TabIndex = 3;
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
-            // 
-            // sellman
-            // 
-            this.sellman.FormattingEnabled = true;
-            this.sellman.Location = new System.Drawing.Point(12, 143);
-            this.sellman.Name = "sellman";
-            this.sellman.Size = new System.Drawing.Size(100, 20);
-            this.sellman.TabIndex = 4;
             // 
             // button21
             // 
@@ -1340,6 +1331,24 @@ namespace wzbalance.src.Forms
             this.label3.TabIndex = 11;
             this.label3.Text = "label3";
             // 
+            // buyman
+            // 
+            this.buyman.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.buyman.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.buyman.FormattingEnabled = true;
+            this.buyman.Location = new System.Drawing.Point(12, 194);
+            this.buyman.Name = "buyman";
+            this.buyman.Size = new System.Drawing.Size(100, 20);
+            this.buyman.TabIndex = 4;
+            // 
+            // sellman
+            // 
+            this.sellman.FormattingEnabled = true;
+            this.sellman.Location = new System.Drawing.Point(12, 143);
+            this.sellman.Name = "sellman";
+            this.sellman.Size = new System.Drawing.Size(100, 20);
+            this.sellman.TabIndex = 4;
+            // 
             // MainSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1377,5 +1386,7 @@ namespace wzbalance.src.Forms
         }
 
         #endregion
+
+        private ToolStripMenuItem toolStripMenuItem8;
     }
 }

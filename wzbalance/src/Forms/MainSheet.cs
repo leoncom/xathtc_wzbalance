@@ -2720,5 +2720,13 @@ namespace wzbalance.src.Forms
                 this.htdqzt.SelectedIndex = -1;
             }
         }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            ContractRulesMgr contract_mgr = new ContractRulesMgr(this.dbop);
+            contract_mgr.Owner = this;
+            contract_mgr.Initialize();
+            contract_mgr.ShowDialog();
+        }
     }
 }

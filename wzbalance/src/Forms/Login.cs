@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using wzbalance.Properties;
+using wzbalance.src.Utils;
 
 namespace wzbalance.src.Forms
 {
@@ -51,11 +52,15 @@ namespace wzbalance.src.Forms
             this.pwd = "rocroc";
             this.db = "wzbalance";
         }
-        private void AddNewTable()
+        private void AddContractFillRulesTable()
         {
-            string sql = "CREATE TABLE `template` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(25) NOT NULL,`title` varchar(50) DEFAULT NULL, `titlefont` varchar(25) NOT NULL,`contentfont` varchar(25) NOT NULL,`discolumns` varchar(1024) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-            this.dbop.updatesql(sql);
+            string create_table_sql = "CREATE TABLE `contract_fill_rule` (`id` int(11) NOT NULL AUTO_INCREMENT, "
+                                     + "`rule_name` varchar(64) NOT NULL, `primary_column` varchar(64) NOT NULL,"
+                                     + "`check_empty_columns` varchar(1024) DEFAULT '', PRIMARY KEY (`id`)"
+                                     + ") ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+            this.dbop.updatesql(create_table_sql);
         }
+
         private void AddNewColumn(string tablename, string columnname)
         {
             string sql = string.Concat(new string[]
@@ -161,6 +166,12 @@ namespace wzbalance.src.Forms
                 this.AddNewColumn("balance", "yf");
                 string sql = "insert into tbdesc(columnname, display, type) values('yf','运费',1)";
                 this.dbop.updatesql(sql);
+            }
+
+            if (!this.checktableExist("contract_fill_rule"))
+            {
+                // 添加"合同规则"的数据表
+                this.AddContractFillRulesTable();
             }
             
         }

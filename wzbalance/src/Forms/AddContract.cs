@@ -228,48 +228,78 @@ namespace wzbalance.src.Forms
                 }
             }
         }
-        private bool check_items_input(StringCollection inputorders, StringCollection subitems)
+
+        private string get_column_display(string column_name)
         {
-            string control_name = inputorders[int.Parse(subitems[0]) - 1];
-            AddContract.Pair pair = this.groupfindcontrol(control_name);
-            bool result;
-            if (base.Controls[pair.index].Controls[pair.subindex].Text.Trim() != "")
+            DataTable table = this.mfrm.dbop.getData("select display from tbdesc where columnname='" + column_name + "'");
+            DataTableReader reader = table.CreateDataReader();
+            if (reader.Read())
             {
-                for (int i = 1; i < subitems.Count; i++)
-                {
-                    string control_name2 = inputorders[int.Parse(subitems[i]) - 1];
-                    AddContract.Pair pair2 = this.groupfindcontrol(control_name2);
-                    if (base.Controls[pair2.index].Controls[pair2.subindex].GetType() == typeof(DateTimePicker))
-                    {
-                        DateTimePicker dateTimePicker = (DateTimePicker)base.Controls[pair2.index].Controls[pair2.subindex];
-                        if (!dateTimePicker.Checked)
-                        {
-                            MessageBox.Show("第" + subitems[i] + "项未填，请返回填写", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            result = false;
-                            return result;
-                        }
-                    }
-                    else
-                    {
-                        if (base.Controls[pair2.index].Controls[pair2.subindex].Text.Trim() == "")
-                        {
-                            MessageBox.Show("第" + subitems[i] + "项未填，请返回填写", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            result = false;
-                            return result;
-                        }
-                    }
-                }
+                return reader.GetString(0);
             }
-            result = true;
-            return result;
+            else
+            {
+                return "(未知项)";
+            }
         }
+
         private bool input_check()
         {
-            StringCollection inputOrder = Settings.Default.InputOrder;
-            StringCollection contractInput = Settings.Default.ContractInput;
-            StringCollection caiGouInput = Settings.Default.CaiGouInput;
-            StringCollection sellInput = Settings.Default.SellInput;
-            return this.check_items_input(inputOrder, contractInput) && this.check_items_input(inputOrder, caiGouInput) && this.check_items_input(inputOrder, sellInput);
+            // 输入规则检查，从数据库中读取规则
+            DataTable fill_rule_table = this.mfrm.dbop.getData("select rule_name, primary_column, check_empty_columns from contract_fill_rule");
+            DataTableReader rule_reader = fill_rule_table.CreateDataReader();
+
+            while (rule_reader.Read())
+            {
+                string rule_name = rule_reader.GetString(0);
+                string key = rule_reader.GetString(1);
+                string check_columns = rule_reader.GetString(2);
+                string[] check_column_array = check_columns.Split(',');
+
+                AddContract.Pair key_pair = this.groupfindcontrol(key);
+                if (key_pair.index == -1 || key_pair.subindex == -1)
+                {
+                    // this key column not found, do not check
+                    continue;
+                }
+
+                if (base.Controls[key_pair.index].Controls[key_pair.subindex].Text.Trim() != "")
+                {
+                    // if the key column is not empty, check the column array one by one
+                    for (int i = 0; i < check_column_array.Length; i++)
+                    {
+                        AddContract.Pair check_pair = this.groupfindcontrol(check_column_array[i]);
+                        if (check_pair.index == -1 || check_pair.subindex == -1)
+                        {
+                            // check column not found, ignore
+                            continue;
+                        }
+
+                        if (base.Controls[check_pair.index].Controls[check_pair.subindex].GetType() == typeof(DateTimePicker))
+                        {
+                            DateTimePicker dateTimePicker = (DateTimePicker)base.Controls[check_pair.index].Controls[check_pair.subindex];
+                            if (!dateTimePicker.Checked)
+                            {
+                                MessageBox.Show(this.get_column_display(check_column_array[i]) + " 未填，命中规则名称(" + rule_name + ")", "提示",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            if (base.Controls[check_pair.index].Controls[check_pair.subindex].Text.Trim() == "")
+                            {
+                                MessageBox.Show(this.get_column_display(check_column_array[i]) + " 未填，命中规则名称(" + rule_name + ")", "提示",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return false;
+                            }
+                        }
+
+                    }
+                }
+
+            }
+            return true;
         }
         private void button2_Click(object sender, EventArgs e)
         {
